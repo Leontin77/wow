@@ -35,8 +35,17 @@
 
 .card {
   padding: 2em;
+  background-image: url('./assets/backGround.webp');
+  background-size: cover;
+  background-position: center;
 }
 
 .read-the-docs {
   color: #888;
+}
+
+.count{
+  font-size: 50px;
+  font-weight: bold;
+  color: #007bff;
 }

@@ -1,0 +1,19 @@
+.flyout {
+    position: absolute; // Use absolute positioning to place relative to the nearest positioned ancestor
+    color: #ffa500; // Bright color for visibility
+    font-size: 42px; // Larger font size for impact
+    font-weight: bold; // Make it bold to stand out
+    animation: flyUp 0.8s ease-in-out forwards;
+    pointer-events: none;
+}
+
+@keyframes flyUp {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -100px); // Increase the distance it flies up
+    }
+}
