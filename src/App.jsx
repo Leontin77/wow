@@ -24,7 +24,7 @@ tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунд�
 tg.MainButton.setParams({"color": "#143F6B"}); //так изменяются все параметры
 
 
-tg.onEvent('mainButtonClicked', function(){
+    Telegram.WebApp.onEvent('mainButtonClicked', function(){
 	tg.sendData("some string that we need to send");
 	//при клике на основную кнопку отправляем данные в строковом виде
 });
