@@ -6,7 +6,7 @@
     <link rel="icon" type="image/svg+xml" href="/wow/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
-    <script type="module" crossorigin src="/wow/assets/index-BPMqnahi.js"></script>
+    <script type="module" crossorigin src="/wow/assets/index-D0dGqxAH.js"></script>
     <link rel="stylesheet" crossorigin href="/wow/assets/index-DCA6U5c5.css">
   </head>
   <body>
@@ -29,19 +29,19 @@
 
 
 
-        tg.MainButton.onClick(() => {
-            console.log("start");
-            var xhr = new XMLHttpRequest();
-            xhr.open("POST", "http://localhost:5000/", true);
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.setRequestHeader("X-Custom-Info", "getOpenInvoiceUrl");
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4 && xhr.status === 200) {
-                    tg.openInvoice(xhr.responseText);
-                }
-            };
-            xhr.send(data);
-        });
+        // tg.MainButton.onClick(() => {
+        //     console.log("start");
+        //     var xhr = new XMLHttpRequest();
+        //     xhr.open("POST", "http://localhost:5000/", true);
+        //     xhr.setRequestHeader("Content-Type", "application/json");
+        //     xhr.setRequestHeader("X-Custom-Info", "getOpenInvoiceUrl");
+        //     xhr.onreadystatechange = function () {
+        //         if (xhr.readyState === 4 && xhr.status === 200) {
+        //             tg.openInvoice(xhr.responseText);
+        //         }
+        //     };
+        //     xhr.send(data);
+        // });
     </script>
   </body>
 </html>
