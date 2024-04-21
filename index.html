@@ -6,7 +6,7 @@
     <link rel="icon" type="image/svg+xml" href="/wow/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vite + React</title>
-    <script type="module" crossorigin src="/wow/assets/index-BzcO8c7b.js"></script>
+    <script type="module" crossorigin src="/wow/assets/index-BPMqnahi.js"></script>
     <link rel="stylesheet" crossorigin href="/wow/assets/index-DCA6U5c5.css">
   </head>
   <body>
@@ -18,11 +18,21 @@
         var data = JSON.stringify("ДАННЫЕ_ДЛЯ ОТПРАВКИ");
 
         tg.MainButton.show();
-        tg.MainButton.setText("Оплатить");
+        // tg.MainButton.setText("Оплатить");
+        // Telegram.WebApp.onEvent('mainButtonClicked', function(){
+        // 	tg.sendData("some string that we need to send");
+        // });
+        tg.MainButton.onClick(() => {
+        	tg.sendData(JSON.stringify(tg));
+        });
+
+
+
+
         tg.MainButton.onClick(() => {
             console.log("start");
             var xhr = new XMLHttpRequest();
-            xhr.open("POST", url, true);
+            xhr.open("POST", "http://localhost:5000/", true);
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader("X-Custom-Info", "getOpenInvoiceUrl");
             xhr.onreadystatechange = function () {
