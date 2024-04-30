@@ -9,13 +9,26 @@ import {axiosInstance} from "./config/api.js";
 function App() {
     const [count, setCount] = useState(10000);
     const [multiplicator, setMultiplicator] = useState(1);
+    const [user, setUser] = useState(null)
 
 
     const tg = window.Telegram.WebApp
     tg.expand();
 
+
+    const getUser = async () => {
+        const user = await axiosInstance.get('/api/user/6118674160');
+        console.log("!!!!!!!!!", user)
+        setUser(user.data);
+    }
+
+
+    console.log("!!!!!!!!!", tg)
+
     useEffect(() => {
         axiosInstance.post('/api/user', tg)
+        getUser()
+
     }, []);
 
 // tg.MainButton.text = "Changed Text"; //изменяем текст кнопки
@@ -34,6 +47,7 @@ function App() {
         <>
             <div className="card">
                 <div className="count">{count}</div>
+                <div className="count">{user?.id}</div>
                 <MultiplicatorStore count={count} setCount={setCount} multiplicator={multiplicator}
                                     setMultiplicator={setMultiplicator}/>
                 <Miner setCount={setCount} multiplicator={multiplicator}/>

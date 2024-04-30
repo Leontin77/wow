@@ -1,5 +1,5 @@
 import axios from "axios";
-export const apiUrl = "http://localhost:5000";
+export const apiUrl = "https://wow-crypto.onrender.com/";
 export const config = {
   baseURL: apiUrl,
   headers: {
