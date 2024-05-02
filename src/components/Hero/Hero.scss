@@ -1,0 +1,42 @@
+// .hero {
+//     // background-image: url('../../assets/heroSprite.webp');
+//     // background-position: center;
+//     // height: 50px;
+//     // width: 50px;
+//     width: 50px; 
+//     height: 75px;
+//     // position: absolute;
+//     background-image: url('../../assets/heroSprite.png');
+//     // background-position: 70px -10px
+// }
+
+// .hero {
+//     width: 50px; 
+//     height: 75px;
+//     position: absolute;
+//     background-image: url('../../assets/heroSprite.png');
+//     background-position: 50px -10px; // Початкова позиція спрайту
+//     // Додайте інші стилі за потребою
+//   }
+
+
+// .hero {
+//     width: 70px; // Set to the width of one frame
+//     height: 100px; // Set to the height of one frame
+//         background-image: url('../../assets/heroSprite.png');
+
+//     background-size: 700px; // Total width of all frames (e.g., 70px * 10 frames)
+//   }
+
+
+// .hero {
+//     width: 75px; // Width of each frame
+//     height: 100px; // Height of each frame
+//     // Add any additional styles as needed
+//   }
+
+.hero {
+    position: absolute;
+    will-change: transform; /* Optimizes animations */
+  }
+  

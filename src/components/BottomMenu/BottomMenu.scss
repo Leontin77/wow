@@ -1,0 +1,29 @@
+.bottomMenu {
+    height: 150px;
+    width: 100%;
+    backGround: rgba(0, 0, 0, 0.9);
+    position: absolute;
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    &-heroIcon {
+        width: 30%;
+        height: 100%;
+        border: 1px solid transparent;
+        // border-image: url('../../assets/borderHero.png') 10 repeat;
+        background-image: url('../../assets/heroIcon.png');
+        background-size: cover;
+        background-position: center;
+    }
+    &-skills {
+        width: 55%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        &__cell {
+            width: 33%;
+            height: 50%;
+            outline: 1px solid rgba($color: #fff, $alpha: .4);
+        }
+    }
+}
