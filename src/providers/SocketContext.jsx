@@ -2,6 +2,7 @@ import React, {createContext, useState, useEffect, useContext} from "react";
 import io from "socket.io-client";
 import * as SocketIOClient from "socket.io-client";
 import axios from "axios";
+import {apiUrl} from "../config/api.js";
 
 const SocketContext = createContext({
     socket: null,
@@ -9,7 +10,7 @@ const SocketContext = createContext({
 });
 
 export const useSocketContext = () => useContext(SocketContext);
-export const apiUrl = "http://localhost:5000";
+
 export const config = {
     baseURL: apiUrl,
     headers: {
