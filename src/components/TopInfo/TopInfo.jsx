@@ -1,8 +1,13 @@
 import './TopInfo.scss'
 
-const TopInfo = () => {
+const TopInfo = ({score, energy}) => {
+
     return (
-        <div className='topInfo'></div>
+        <div className='topInfo'>
+            <div>Energy {energy}</div>
+            <div>Gold {score}</div>
+            <div>????</div>
+        </div>
     )
 }
 

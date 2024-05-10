@@ -14,7 +14,7 @@ function App() {
 
   const tg = window.Telegram.WebApp;
 
-  console.log("!!!!!!!! tg", tg);
+  // console.log("!!!!!!!! tg", tg);
 
   tg.expand(); //расширяем на все окно
 
@@ -24,19 +24,24 @@ function App() {
   tg.MainButton.setParams({ color: "#143F6B" }); //так изменяются все параметры
 
     const getUser = async () => {
-        const user = await axiosInstance.get('/api/user/6118674160');
+        const user = await axiosInstance.get('/api/user/877649424');
         console.log("!!!!!!!!!", user)
         setUser(user.data);
     }
 
 
-    console.log("!!!!!!!!!", tg)
+    // console.log("!!!!!!!!!", tg)
 
     useEffect(() => {
         axiosInstance.post('/api/user', tg)
         getUser()
 
     }, []);
+
+
+
+
+
 
 // tg.MainButton.text = "Changed Text"; //изменяем текст кнопки
 // tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки

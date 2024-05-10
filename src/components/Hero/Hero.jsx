@@ -52,7 +52,7 @@ const Hero = () => {
           animateMining();
           position = 1
         }
-        console.log(position);
+        // console.log(position);
         heroElement.style.transform = `translate(${xPos}px, ${yPos}px) scaleX(${position})`;
       },
     });

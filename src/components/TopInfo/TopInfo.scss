@@ -1,5 +1,18 @@
 .topInfo {
-    height: 50px;
-    width: 100%;
-    background: rgba($color: #000000, $alpha: 0.3)
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2px;
+
+  div {
+    background: rgba($color: #000000, $alpha: 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 33%;
+    height: 100%;
+    padding: 0 5px;
+  }
 }

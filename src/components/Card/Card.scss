@@ -1,7 +1,22 @@
 .mainCard {
-    height: 100vh;
-    width: 100vw;
-    background-image: url('../../assets/backgrounddd.webp');
-    background-size: cover;
-    background-position: center;
+  height: 100vh;
+  width: 100vw;
+  background-image: url('../../assets/backgrounddd.webp');
+  background-size: cover;
+  background-position: center;
+}
+
+.rudnik {
+  position: absolute;
+  width: 33vw;
+  height: 20vh;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-40%, -70%);
+}
+
+.goldIcon {
+  width: 100%;
+  height: 100%;
 }
