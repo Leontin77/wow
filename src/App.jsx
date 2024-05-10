@@ -8,8 +8,6 @@ import {axiosInstance} from "./config/api.js";
 import DefaultPage from "./pages/DefaultPage/DefaultPage";
 
 function App() {
-    const [count, setCount] = useState(10000);
-    const [multiplicator, setMultiplicator] = useState(1);
     const [user, setUser] = useState(null)
 
   const tg = window.Telegram.WebApp;
@@ -18,10 +16,10 @@ function App() {
 
   tg.expand(); //расширяем на все окно
 
-  tg.MainButton.text = "Changed Text"; //изменяем текст кнопки
-  tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
-  tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
-  tg.MainButton.setParams({ color: "#143F6B" }); //так изменяются все параметры
+  // tg.MainButton.text = "Changed Text"; //изменяем текст кнопки
+  // tg.MainButton.textColor = "#F55353"; //изменяем цвет текста кнопки
+  // tg.MainButton.color = "#143F6B"; //изменяем цвет бэкграунда кнопки
+  // tg.MainButton.setParams({ color: "#143F6B" }); //так изменяются все параметры
 
     const getUser = async () => {
         const user = await axiosInstance.get('/api/user/877649424');
@@ -75,6 +73,7 @@ function App() {
   return (
     <>
       <DefaultPage />
+        {tg && <div>{JSON.stringify(tg.initData)}</div>}
       {/* <div className="card">
         <div className="count">{count}</div>
         <MultiplicatorStore count={count} setCount={setCount} multiplicator={multiplicator} setMultiplicator={setMultiplicator} />
