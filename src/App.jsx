@@ -22,7 +22,7 @@ function App() {
   // tg.MainButton.setParams({ color: "#143F6B" }); //так изменяются все параметры
 
     const getUser = async () => {
-        const user = await axiosInstance.get('/api/user/877649424');
+        const user = await axiosInstance.get('/api/user/' + tg.initData.user);
         console.log("!!!!!!!!!", user)
         setUser(user.data);
     }
@@ -73,7 +73,7 @@ function App() {
   return (
     <>
       <DefaultPage />
-        {tg && <div>{JSON.stringify(tg.initData)}</div>}
+        {tg && <div>{JSON.stringify(tg.initData.user)}</div>}
       {/* <div className="card">
         <div className="count">{count}</div>
         <MultiplicatorStore count={count} setCount={setCount} multiplicator={multiplicator} setMultiplicator={setMultiplicator} />
