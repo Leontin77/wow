@@ -30,7 +30,7 @@ export const SocketContextProvider = ({children}) => {
         if (true) {
             const socket = io(apiUrl, {
                 query: {
-                    userId: 877649424,
+                    userId: tg?.initData?.user,
                 },
             });
 
