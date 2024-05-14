@@ -27,10 +27,10 @@ export const SocketContextProvider = ({children}) => {
 
 
     useEffect(() => {
-        if (true) {
+        if (tg) {
             const socket = io(apiUrl, {
                 query: {
-                    userId: tg?.initDataUnsafe?.user?.id,
+                    userId: tg?.initDataUnsafe?.user?.id || 877649424,
                 },
             });
 
