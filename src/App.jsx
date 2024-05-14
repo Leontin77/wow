@@ -22,7 +22,7 @@ function App() {
   // tg.MainButton.setParams({ color: "#143F6B" }); //так изменяются все параметры
 
     const getUser = async () => {
-        const user = await axiosInstance.get('/api/user/' + ( tg?.initData?.user || 552161534));
+        const user = await axiosInstance.get('/api/user/' + ( tg?.initDataUnsafe?.user?.id));
         // const user = await axiosInstance.get('/api/user/' + 877649424);
         console.log("!!!!!!!!!", user)
         setUser(user.data);
