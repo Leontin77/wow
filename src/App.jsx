@@ -73,8 +73,9 @@ function App() {
 
   return (
     <>
+        {tg && <div>{JSON.stringify(tg.initData.user)}111</div>}
+        {<div>{JSON.stringify(tg)}222</div>}
       <DefaultPage />
-        {tg && <div>{JSON.stringify(tg.initData.user)}</div>}
 
 
       {/* <div className="card">
