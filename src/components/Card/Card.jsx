@@ -15,6 +15,7 @@ const Card = () => {
     const [energyRegeneration, setEnergyRegeneration] = useState(0);
     const [updateTrigger, setUpdateTrigger] = useState(0);
     const [claimTime, setClaimTime] = useState(0);
+    const [claimValue, setClaimValue] = useState(0);
 
 
     useEffect(() => {
@@ -44,6 +45,9 @@ const Card = () => {
 
         if ((energy + energyRegeneration) < data?.stats?.energy) {
             setEnergyRegeneration(prevState => prevState + data?.stats?.speed)
+        }
+        if (claimTime) {
+            setClaimValue((Date.now() - claimTime) / 1000, data?.stats?.strength * 3600)
         }
 
     }, [updateTrigger]);
@@ -83,7 +87,7 @@ const Card = () => {
         <div className="mainCard">
             <TopInfo score={score} energy={energy + energyRegeneration}/>
             <div className="rudnik">
-                <button onClick={() => claim()}>claim</button>
+                <button onClick={() => claim()}>claim {claimValue}</button>
                 <img onClick={() => tap()} className="goldIcon" src={goldIcon}/>
             </div>
             <Hero/>
