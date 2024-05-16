@@ -73,7 +73,7 @@ function App() {
 
   return (
     <>
-        {tg && <div>{tg.initData.user}zal</div>}
+        {tg && <div>{tg.initData.user}zalss</div>}
         {<div>{JSON.stringify(tg)}222</div>}
       <DefaultPage />
 
