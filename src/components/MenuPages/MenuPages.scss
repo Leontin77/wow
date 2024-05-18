@@ -1,0 +1,19 @@
+.menuPages {
+  width: 100%;
+  position: absolute;
+  backGround: #000;
+  bottom: 0;
+  left: 0;
+  &-list {
+    display: flex;
+    justify-content: space-around;
+    height: 60px;
+    align-items: center;
+    &__item {
+        .linkName {
+            color: #fff;
+            font-size: 12px;
+        }
+    }
+  }
+}

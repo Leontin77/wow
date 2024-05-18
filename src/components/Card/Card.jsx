@@ -2,6 +2,7 @@ import "./Card.scss";
 import BottomMenu from "../BottomMenu/BottomMenu";
 import TopInfo from "../TopInfo/TopInfo";
 import goldIcon from '../../assets/gold.png';
+// import MenuPages from "../MenuPages/MenuPages";
 import Hero from "../Hero/Hero";
 import { useSocket } from "../../hooks/useSocket.js";
 import { useSocketContext } from "../../providers/SocketContext.jsx";
@@ -79,6 +80,7 @@ const Card = () => {
             </div>
             <Hero />
             <BottomMenu />
+            {/* <MenuPages/> */}
         </div>
     );
 };
