@@ -18,6 +18,7 @@ const FransItem = () => {
 
   return (
     <section className="frensItem">
+      <div className="frensItem-quantity">{data?.length} frens</div>
       <ul className="frensItem-list">
         {data?.map((item) => {
           return (

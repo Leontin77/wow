@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useRef } from "react";
 import gsap from "gsap";
 import "./Hero.scss";
 import heroFront from "../../assets/heroFront.png";
@@ -21,13 +21,11 @@ const miningFrames = [
 
 const Hero = () => {
   const heroRef = useRef(null);
-  const tlRef = useRef(null);
+  const heroTlRef = useRef(null);
 
-  const heroAnimation = (scale) => {
+  const heroAnimation = () => {
     const heroElement = heroRef.current;
     let frameIndex = 0;
-    let xPos = 0;
-    let yPos = 230;
 
     const updateHeroFrame = () => {
       heroElement.src = heroFrames[frameIndex % heroFrames.length];
@@ -35,24 +33,24 @@ const Hero = () => {
     };
 
     const tl = gsap.timeline({ repeat: -1, yoyo: true });
+    heroTlRef.current = tl;
 
-    let position
+    let position = 1;
     tl.to(heroElement, {
       x: 100,
       y: 70,
       duration: 5,
       ease: "linear",
       onUpdate: () => {
-        xPos = gsap.getProperty(heroElement, "x");
-        yPos = gsap.getProperty(heroElement, "y");
+        const xPos = gsap.getProperty(heroElement, "x");
+        const yPos = gsap.getProperty(heroElement, "y");
 
-        if (xPos === 100) {
-          position = -1
+        if (xPos >= 100) {
+          position = -1;
         } else if (xPos <= 1) {
           animateMining();
-          position = 1
+          position = 1;
         }
-        // console.log(position);
         heroElement.style.transform = `translate(${xPos}px, ${yPos}px) scaleX(${position})`;
       },
     });
@@ -73,30 +71,38 @@ const Hero = () => {
     };
   };
 
-  function animateMining() {
+  const animateMining = () => {
     const heroElement = heroRef.current;
     const miningTl = gsap.timeline({
-      // onComplete: () => {
-      //   tlRef.current.resume(); // Resume walking animation after mining
-      // },
+      onComplete: () => {
+        if (heroTlRef.current) {
+          heroTlRef.current.resume(); // Resume walking animation after mining
+        }
+      },
     });
+
+    if (heroTlRef.current) {
+      heroTlRef.current.pause(); // Pause walking animation before mining
+    }
 
     miningTl.to(heroElement, {
       onUpdate: () => {
-        const frameIndex =
-          Math.floor(miningTl.time() / 0.1) % miningFrames.length;
+        const frameIndex = Math.floor(miningTl.time() / 0.1) % miningFrames.length;
         heroElement.src = miningFrames[frameIndex];
       },
-      duration: 3,
+      duration: 0.5,
       ease: "steps(5)",
     });
-  }
+  };
 
   useEffect(() => {
     heroAnimation();
-    // animateMining();
+    return () => {
+      if (heroTlRef.current) {
+        heroTlRef.current.kill();
+      }
+    };
   }, []);
-
 
   return (
     <img
@@ -114,4 +120,3 @@ const Hero = () => {
 };
 
 export default Hero;
-

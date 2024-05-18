@@ -1,5 +1,11 @@
 .frensItem {
     width: 80vw;
+    &-quantity{
+        text-align: start;
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
     &-list {
         &__item {
             display: flex;
