@@ -89,6 +89,7 @@ const Hero = () => {
       onUpdate: () => {
         const frameIndex = Math.floor(miningTl.time() / 0.1) % miningFrames.length;
         heroElement.src = miningFrames[frameIndex];
+        heroElement.style.transform = `scaleX(-1)`
       },
       duration: 0.5,
       ease: "steps(5)",
