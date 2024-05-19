@@ -1,8 +1,13 @@
-.frensPage-button {
+.frensPage {
+  height: 100%;
+  width: 100%;
+//   background: #000;
+  &-button {
     width: 100%;
     height: 50px;
     background: #fff;
     color: #000;
     font-size: 18px;
     font-weight: bold;
+  }
 }
