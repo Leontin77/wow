@@ -1,34 +1,42 @@
+import { useEffect, useState } from "react";
 import "./FrensItem.scss";
+import { useSocketContext } from "../../providers/SocketContext.jsx";
+import { useSocket } from "../../hooks/useSocket";
 
 const FransItem = () => {
-  const data = [
-    {
-      name: "CLeonyn",
-      amount: 1200,
-    },
-    {
-      name: "FEugen",
-      amount: 1500,
-    },
-    {
-      name: "SDmytro",
-      amount: 1400,
-    },
-  ];
+  const { socket } = useSocketContext();
+  const { data } = useSocket("getUser");
+  const [referrals, setReferrals] = useState([]);
+
+  useEffect(() => {
+    if (socket && data) {
+      console.log('Fetching referral stats for:', data.referrals);
+      socket.emit("getReferralStats", data.referrals);
+
+      const handleReferralStats = (referrals) => {
+        setReferrals(referrals);
+      };
+
+      socket.on("referralStats", handleReferralStats);
+
+      // Cleanup the event listener on component unmount or dependencies change
+      return () => {
+        socket.off("referralStats", handleReferralStats);
+      };
+    }
+  }, [socket, data]);
 
   return (
     <section className="frensItem">
-      <div className="frensItem-quantity">{data?.length} frens</div>
+      <div className="frensItem-quantity">{referrals.length} frens</div>
       <ul className="frensItem-list">
-        {data?.map((item) => {
-          return (
-            <li className="frensItem-list__item">
-              <div className="avatar">{item.name.slice(0,1).toUpperCase()}</div>
-              <div className="name">{item.name}</div>
-              <div className="amount">{item.amount}</div>
-            </li>
-          );
-        })}
+        {referrals.map((item) => (
+          <li key={item._id} className="frensItem-list__item">
+            <div className="avatar">{item.username.slice(0, 2).toUpperCase()}</div>
+            <div className="name">{item.username}</div>
+            <div className="amount">{item.score}</div>
+          </li>
+        ))}
       </ul>
     </section>
   );

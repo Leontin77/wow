@@ -111,7 +111,7 @@ function App() {
 
   const getUser = async () => {
     const user = await axiosInstance.get(
-      "/api/user/" + (tg?.initDataUnsafe?.user?.id || 877649424)
+      "/api/user/" + (tg?.initDataUnsafe?.user?.id || 552161534)
     );
     setUser(user.data);
   };

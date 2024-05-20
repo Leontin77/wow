@@ -66,6 +66,10 @@ const Card = () => {
         }
     };
 
+    const findReferals = () => {
+        let referalStats
+    }
+
     const tap = () => {
         setScore(prev => prev + 1);
         setEnergy(prev => prev - (data?.stats?.strength || 1));
@@ -77,6 +81,8 @@ const Card = () => {
             <div className="rudnik">
                 <button onClick={claim}>claim {claimValue || 0}</button>
                 <img onClick={tap} className="goldIcon" src={goldIcon} alt="Gold Icon" />
+                <button onClick={findReferals}>referalStats</button>
+
             </div>
             <Hero />
             <BottomMenu />

@@ -30,7 +30,7 @@ export const SocketContextProvider = ({children}) => {
         if (tg) {
             const socket = io(apiUrl, {
                 query: {
-                    userId: tg?.initDataUnsafe?.user?.id || 877649424,
+                    userId: tg?.initDataUnsafe?.user?.id || 552161534,
                 },
             });
 
@@ -40,6 +40,9 @@ export const SocketContextProvider = ({children}) => {
 
             socket.on("getUser", (user) => {
                 console.log("!!!!!!!!!! soket", user)
+            });
+            socket.on("getReferalsList", (refs) => {
+                console.log("!!!!!!!!!! getReferalsList", refs)
             });
             socket.on("offlineGold", (golg) => {
                 console.log("!!!!!!!!!! offlineGold", golg)
