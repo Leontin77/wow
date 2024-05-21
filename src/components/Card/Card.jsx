@@ -1,7 +1,7 @@
 import "./Card.scss";
 import BottomMenu from "../BottomMenu/BottomMenu";
 import TopInfo from "../TopInfo/TopInfo";
-import goldIcon from '../../assets/gold.png';
+import goldIcon from '../../assets/sticker.webp';
 // import MenuPages from "../MenuPages/MenuPages";
 import Hero from "../Hero/Hero";
 import { useSocket } from "../../hooks/useSocket.js";

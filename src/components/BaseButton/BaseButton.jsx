@@ -1,8 +1,8 @@
 import './BaseButton.scss'
 
-const BaseButton = ({title, style, className}) => {
+const BaseButton = ({title, style, className, onClick = () => {}}) => {
     return (
-        <button className={`baseButton ${className}`} style={style}>
+        <button onClick={onClick} className={`baseButton ${className}`} style={style}>
             {title}
         </button>
     )
