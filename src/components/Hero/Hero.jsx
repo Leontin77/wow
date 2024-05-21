@@ -37,15 +37,15 @@ const Hero = () => {
 
     let position = 1;
     tl.to(heroElement, {
-      x: 100,
-      y: 70,
+      x: 20,
+      y: 120,
       duration: 5,
       ease: "linear",
       onUpdate: () => {
         const xPos = gsap.getProperty(heroElement, "x");
         const yPos = gsap.getProperty(heroElement, "y");
 
-        if (xPos >= 100) {
+        if (xPos >= 20) {
           position = -1;
         } else if (xPos <= 1) {
           animateMining();
@@ -113,8 +113,8 @@ const Hero = () => {
       className="hero"
       style={{
         position: "absolute",
-        left: "85px",
-        top: "230px",
+        left: "100px",
+        top: "200px",
       }}
     />
   );
