@@ -114,7 +114,7 @@ const Hero = () => {
       style={{
         position: "absolute",
         left: "100px",
-        top: "200px",
+        top: "160px",
       }}
     />
   );
