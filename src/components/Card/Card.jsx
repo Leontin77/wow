@@ -85,7 +85,7 @@ const Card = () => {
 
             </div>
             <Hero />
-            <BottomMenu />
+            {/* <BottomMenu /> */}
             {/* <MenuPages/> */}
         </div>
     );
