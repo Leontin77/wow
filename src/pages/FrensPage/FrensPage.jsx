@@ -12,7 +12,7 @@ const FrensPage = () => {
   const { socket } = useSocketContext();
   const [user, setUser] = useState([]);
   const [amountToClaim, setAmountToClaim] = useState(0)
-  const [referralRewardsArray, setReferralRewardsArray] = useState(0)
+  const [referralRewardsArray, setReferralRewardsArray] = useState([])
 
   console.log("🚀 ~ FransItem ~ referrals:", user)
 
@@ -64,13 +64,15 @@ const FrensPage = () => {
   const claimRefRewards = () => {
     console.log('claimRefRewards', referralRewardsArray, amountToClaim)
     socket.emit("claimRefRewards", {referralRewardsArray, amountToClaim});
+    setAmountToClaim(0)
+    setReferralRewardsArray([])
   }
   
 
   return (
     <div className="frensPage">
-      <FaUsersViewfinder size='5em'/>
-      <h2>Invite Frens</h2>
+      <FaUsersViewfinder size='3em'/>
+      <h3>Invite Frens</h3>
       <FrensClaim amountToClaim={amountToClaim} claimRefRewards={claimRefRewards}/>
       <FrensItem referrals={user?.referrals}/>
       <BaseButton title="Invite a fren" className="frensPage-button"/>

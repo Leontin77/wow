@@ -19,6 +19,12 @@ const Card = () => {
     const energyRegenerationRef = useRef(0);
     const updateTriggerRef = useRef(0);
 
+    useEffect(() => {
+        if (socket) {
+            socket.emit('getUser');
+        }
+    }, [socket]);
+
     const initializeData = useCallback(() => {
         if (data?.stats?.energy && energy === 0 && score === 0) {
             setEnergy(data.energyTemp.value);
@@ -79,9 +85,8 @@ const Card = () => {
         <div className="mainCard">
             <TopInfo score={score} energy={energy + energyRegenerationRef.current} />
             <div className="rudnik">
-                <button onClick={claim}>claim {claimValue || 0}</button>
+                <button onClick={claim}>claim {Math.min(claimValue || 0, (data?.stats?.strength || 1) * 3600)}</button>
                 <img onClick={tap} className="goldIcon" src={goldIcon} alt="Gold Icon" />
-                <button onClick={findReferals}>referalStats</button>
 
             </div>
             <Hero />

@@ -1,5 +1,6 @@
 .frensItem {
     width: 80vw;
+
     &-quantity{
         text-align: start;
         font-size: 15px;
@@ -7,6 +8,8 @@
         margin-bottom: 10px;
     }
     &-list {
+  overflow-y: auto;
+  height: 20vh;
         &__item {
             display: flex;
             align-items:center;
