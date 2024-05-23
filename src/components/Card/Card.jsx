@@ -7,6 +7,7 @@ import Hero from "../Hero/Hero";
 import { useSocket } from "../../hooks/useSocket.js";
 import { useSocketContext } from "../../providers/SocketContext.jsx";
 import { useEffect, useState, useRef, useCallback } from "react";
+import StrengthAnimation from "../StrengthAnimation/StrengthAnimation";
 
 const Card = () => {
     const { data } = useSocket("getUser");
@@ -15,6 +16,7 @@ const Card = () => {
     const [energy, setEnergy] = useState(0);
     const [claimTime, setClaimTime] = useState(0);
     const [claimValue, setClaimValue] = useState(0);
+    const [animations, setAnimations] = useState([]);
     
     const energyRegenerationRef = useRef(0);
     const updateTriggerRef = useRef(0);
@@ -24,6 +26,14 @@ const Card = () => {
             socket.emit('getUser');
         }
     }, [socket]);
+
+    const addAnimation = () => {
+        const id = Date.now();
+        setAnimations((prev) => [...prev, id]);
+        setTimeout(() => {
+            setAnimations((prev) => prev.filter((animationId) => animationId !== id));
+        }, 400); 
+    };
 
     const initializeData = useCallback(() => {
         if (data?.stats?.energy && energy === 0 && score === 0) {
@@ -77,6 +87,7 @@ const Card = () => {
     }
 
     const tap = () => {
+        addAnimation();
         setScore(prev => prev + 1);
         setEnergy(prev => prev - (data?.stats?.strength || 1));
     };
@@ -87,7 +98,9 @@ const Card = () => {
             <div className="rudnik">
                 <button onClick={claim}>claim {Math.min(claimValue || 0, (data?.stats?.strength || 1) * 3600)}</button>
                 <img onClick={tap} className="goldIcon" src={goldIcon} alt="Gold Icon" />
-
+                {animations.map((id) => (
+                    <StrengthAnimation key={id} />
+            ))}
             </div>
             <Hero />
             {/* <BottomMenu /> */}

@@ -1,0 +1,20 @@
+.strengthAnimation {
+    font-size: 24px;
+    color: gold;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    animation: moveUpFadeOut 1s
+}
+
+@keyframes moveUpFadeOut {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-60px);
+    }
+}
