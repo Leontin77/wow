@@ -87,6 +87,9 @@ const Card = () => {
     }
 
     const tap = () => {
+        if (navigator.vibrate) {
+            navigator.vibrate(50); // Vibrate for 50 milliseconds
+        }
         addAnimation();
         setScore(prev => prev + 1);
         setEnergy(prev => prev - (data?.stats?.strength || 1));
