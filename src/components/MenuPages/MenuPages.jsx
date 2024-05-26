@@ -10,19 +10,31 @@ const MenuPages = () => {
       <ul className="menuPages-list">
         <li className="menuPages-list__item">
           <Link to="/wow">
-            <MdHome color="white" size="1.5em" />
+            <MdHome color="white" size="1.5em"/>
             <div className="linkName">Home</div>
           </Link>
         </li>
+        {/*<li className="menuPages-list__item">*/}
+        {/*  <Link to="/wow/boost">*/}
+        {/*    <SiBoosty color="white" size="1.5em"/>*/}
+        {/*    <div className="linkName">Boost</div>*/}
+        {/*  </Link>*/}
+        {/*</li>  */}
         <li className="menuPages-list__item">
-          <Link to="/wow/boost">
-            <SiBoosty color="white" size="1.5em" />
-            <div className="linkName">Boost</div>
+         <Link to="/wow/new">
+            <MdHome color="white" size="1.5em"/>
+            <div className="linkName">By design</div>
+          </Link>
+        </li>
+        <li className="menuPages-list__item">
+          <Link to="/wow/menu">
+            <SiBoosty color="white" size="1.5em"/>
+            <div className="linkName">Menu</div>
           </Link>
         </li>
         <li className="menuPages-list__item">
           <Link to="/wow/frens">
-            <FaUserFriends color="white" size="1.5em" />
+            <FaUserFriends color="white" size="1.5em"/>
             <div className="linkName">Frens</div>
           </Link>
         </li>

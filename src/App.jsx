@@ -6,7 +6,7 @@
 // import Miner from "./components/Miner";
 // import MultiplicatorStore from "./components/CountStore";
 // import { axiosInstance } from "./config/api.js";
-// import DefaultPage from "./pages/DefaultPage/DefaultPage";
+// import MainPage from "./pages/MainPage/MainPage";
 
 // function App() {
 //   const [user, setUser] = useState(null);
@@ -71,11 +71,11 @@
 //     <>
 //       {/* {tg && <div>{tg.initData.user}zalss</div>}
 //         {<div>{JSON.stringify(tg)}222</div>} */}
-//       {/* <DefaultPage /> */}
+//       {/* <MainPage /> */}
 
 //       <Router>
 //         <Switch>
-//           <Route exact path="/home" component={<DefaultPage/>} />
+//           <Route exact path="/home" component={<MainPage/>} />
 //           {/* <Route path="/about" component={About} />
 //           <Route component={NotFound} /> */}
 //         </Switch>
@@ -101,6 +101,8 @@ import MenuPages from "./components/MenuPages/MenuPages";
 import { axiosInstance } from "./config/api.js";
 import DefaultPage from "./pages/DefaultPage/DefaultPage";
 import FrensPage from "./pages/FrensPage/FrensPage";
+import MenuPage from "./pages/MenuPage/MenuPage.jsx";
+import MainPage from "./pages/MainPage/MainPage.jsx";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -124,6 +126,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/wow" element={<DefaultPage />} />
+        <Route path="/wow/new" element={<MainPage />} />
+        <Route path="/wow/menu" element={<MenuPage />} />
         <Route path="/wow/frens" element={<FrensPage />} />
       </Routes>
       <MenuPages></MenuPages>
