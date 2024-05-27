@@ -87,8 +87,13 @@ const Card = () => {
     }
 
     const tap = () => {
-        if (navigator.vibrate) {
-            navigator.vibrate(50); // Vibrate for 50 milliseconds
+        // if (navigator.vibrate) {
+        //     navigator.vibrate(50); // Vibrate for 50 milliseconds
+        // }
+        if ("vibrate" in navigator) {
+            console.log("Vibration API is supported.");
+        } else {
+            console.log("Vibration API is not supported.");
         }
         addAnimation();
         setScore(prev => prev + 1);
@@ -102,7 +107,7 @@ const Card = () => {
                 <button onClick={claim}>claim {Math.min(claimValue || 0, (data?.stats?.strength || 1) * 3600)}</button>
                 <img onClick={tap} className="goldIcon" src={goldIcon} alt="Gold Icon" />
                 {animations.map((id) => (
-                    <StrengthAnimation key={id} />
+                    <StrengthAnimation key={id} strength={data.stats.strength} />
             ))}
             </div>
             <Hero />

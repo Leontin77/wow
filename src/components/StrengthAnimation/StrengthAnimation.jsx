@@ -1,9 +1,9 @@
 import './StrengthAnimation.scss'
 
-const StrengthAnimation = () => {
+const StrengthAnimation = ({strength}) => {
     return (
         <div className='strengthAnimation'>
-            +1
+            +{strength}
         </div>
     )
 }
